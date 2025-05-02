@@ -19,6 +19,18 @@ create table orders (
     foreign key (customerid) references customers(customerid)
 );
 
+CALL sp_add_customer('cust101', 'John Doe', '9876543210', 'john@example.com', '123 Main Street');
+CALL sp_get_customer_orders('cust101');
+CALL sp_update_order_status('ord001', 'Delivered');
+CALL sp_delete_supplier('sup005');
+CALL sp_get_food_by_category('cat02');
+CALL sp_add_inventory_log('log100', 'f003', 'Removed', 5, '2025-05-01', 'emp03');
+CALL sp_total_amount_by_customer('cust101');
+CALL sp_low_stock_items();
+CALL sp_get_recipe_details('rec07');
+CALL sp_add_employee('emp010', 'Sita Devi', 'Waiter', '9988776655', 'sita@example.com');
+
+
 -- order_items table
 create table order_items (
     orderid varchar(50),
@@ -383,6 +395,16 @@ WHERE orderdate = CURDATE();
 CREATE VIEW vw_pending_orders AS
 SELECT * FROM orders
 WHERE status = 'Pending';
+CALL sp_add_customer('cust101', 'John Doe', '9876543210', 'john@example.com', '123 Main Street');
+CALL sp_get_customer_orders('cust101');
+CALL sp_update_order_status('ord001', 'Delivered');
+CALL sp_delete_supplier('sup005');
+CALL sp_get_food_by_category('cat02');
+CALL sp_add_inventory_log('log100', 'f003', 'Removed', 5, '2025-05-01', 'emp03');
+CALL sp_total_amount_by_customer('cust101');
+CALL sp_low_stock_items();
+CALL sp_get_recipe_details('rec07');
+CALL sp_add_employee('emp010', 'Sita Devi', 'Waiter', '9988776655', 'sita@example.com');
 
 
 
